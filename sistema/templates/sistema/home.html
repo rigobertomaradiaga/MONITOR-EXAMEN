@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Monitor del Sistema</title>
+    <style>
+        body { font-family: Arial; margin: 2em; }
+        .card { border: 1px solid #ccc; padding: 1em; margin: 1em 0; border-radius: 5px; }
+    </style>
+    <script>
+        // Actualización automática cada 10 segundos
+        setInterval(() => location.reload(), 10000);
+    </script>
+</head>
+<body>
+    <h1>Monitor del Sistema 🖥️</h1>
+
+    <div class="card">
+        <h2>CPU</h2>
+        <p>Uso: {{ cpu }}%</p>
+    </div>
+
+    <div class="card">
+        <h2>RAM</h2>
+        <p>Total: {{ ram.total_gb }} GB</p>
+        <p>Usada: {{ ram.used_gb }} GB</p>
+        <p>Uso: {{ ram.percent }}%</p>
+    </div>
+
+    <div class="card">
+        <h2>Disco</h2>
+        <p>Total: {{ disk.total_gb }} GB</p>
+        <p>Usado: {{ disk.used_gb }} GB</p>
+        <p>Libre: {{ disk.free_gb }} GB</p>
+        <p>Uso: {{ disk.percent }}%</p>
+    </div>
+
+    <div class="card">
+        <h2>Sistema</h2>
+        <p>SO: {{ system.os }} {{ system.release }}</p>
+        <p>Versión: {{ system.version }}</p>
+        <p>Núcleos: {{ system.cpu_cores }}</p>
+    </div>
+
+    <form method="get">
+        <button type="submit">Actualizar 🔄</button>
+    </form>
+</body>
+</html>
